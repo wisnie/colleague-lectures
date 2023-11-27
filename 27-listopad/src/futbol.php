@@ -2,8 +2,9 @@
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $mysqli = new mysqli('localhost', 'marek', 'trzcinacukrowa', 'pilkarz1');
 
-$get_matches = "SELECT zespol1, zespol2, wynik, data_rozgrywki FROM rozgrywka WHERE zespol1 = 'EVG'";
+$get_matches_sql = "SELECT zespol1, zespol2, wynik, data_rozgrywki FROM rozgrywka WHERE zespol1 = 'EVG'";
 $matches = $mysqli->query($get_matches)->fetch_all(MYSQLI_ASSOC);
+mysqli_close($mysqli);
 ?>
 <!DOCTYPE html>
 <html lang="pl">
@@ -22,9 +23,13 @@ $matches = $mysqli->query($get_matches)->fetch_all(MYSQLI_ASSOC);
     </header>
     <!-- Meczyki -->
     <section>
-        <article>
-
-        </article>
+        <?php foreach ($matches as $match) : ?>
+            <article>
+                <h3><?= $match['zespol1'] . ' - ' . $match['zespol2'] ?></h3>
+                <h4><?= $match['wynik'] ?></h4>
+                <p>w dniu: <?= $match['data_rozgrywki'] ?></p>
+            </article>
+        <?php endforeach ?>
     </section>
     <main>
         <h2>Reprezentacja Polski</h2>
