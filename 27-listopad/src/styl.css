@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tahoma', sans-serif;
+    background-color: crimson;
+}
+
+h2 {
+    text-align: center;
+    letter-spacing: 7px;
+    text-transform: capitalize;
+}
+
+header {
+    color: white;
+    text-align: center;
+    height: 370px;
+}
+
+article {
+    color: white;
+    text-align: center;
+    width: 200px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+article:hover {
+    border: 1px solid white;
+}
+
+main {
+    background-color: whitesmoke;
+    height: 50px;
+}
+
+.blocks-container {
+    display: flex;
+}
+
+.left-block {
+    background-color: whitesmoke;
+    width: 70%;
+    height: 230px;
+}
+
+.right-block {
+    background-color: whitesmoke;
+    width: 30%;
+    height: 230px;
+    text-align: right;
+}
